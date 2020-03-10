@@ -3,6 +3,7 @@ import '../css/App.scss';
 import Navigation from './Navigation';
 import ToDosContainer from './ToDosContainer';
 import ToDonesContainer from './ToDonesContainer';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 export default class App extends Component {
@@ -86,14 +87,16 @@ export default class App extends Component {
     const toDones = this.state.items && this.state.items.filter(el => el.done);
 
     return (
-      <div className="app">
-        <Navigation />
+      <BrowserRouter>
+        <div className="app">
+          <Navigation />
 
-        {/* pass the props (update function) to the child (and from this child to the next) */}
-        <ToDosContainer item={toDos} updateItem={this.updateItem} addItem={this.addItem} />
-        <ToDonesContainer item={toDones} updateItem={this.updateItem} />
+          {/* pass the props (update function) to the child (and from this child to the next) */}
+          <ToDosContainer item={toDos} updateItem={this.updateItem} addItem={this.addItem} />
+          <ToDonesContainer item={toDones} updateItem={this.updateItem} />
 
-      </div>
+        </div>
+      </BrowserRouter>
     )
   }
 }
