@@ -105,4 +105,20 @@ $btnBg: #184b43;
       }
     }
   }
+
+  .help-container {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page-not-found {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+  }
+
 }
