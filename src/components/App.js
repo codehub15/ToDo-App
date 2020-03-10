@@ -4,6 +4,8 @@ import Navigation from './Navigation';
 import ToDosContainer from './ToDosContainer';
 import ToDonesContainer from './ToDonesContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Help from '../views/Help';
+import PageNotFound from '../views/PageNotFound';
 
 
 export default class App extends Component {
@@ -91,9 +93,21 @@ export default class App extends Component {
         <div className="app">
           <Navigation />
 
-          {/* pass the props (update function) to the child (and from this child to the next) */}
-          <ToDosContainer item={toDos} updateItem={this.updateItem} addItem={this.addItem} />
-          <ToDonesContainer item={toDones} updateItem={this.updateItem} />
+          <Switch>
+            <Route exact path="/">
+              {/* pass the props (update function) to the child (and from this child to the next) */}
+              <ToDosContainer item={toDos} updateItem={this.updateItem} addItem={this.addItem} />
+              <ToDonesContainer item={toDones} updateItem={this.updateItem} />
+            </Route>
+
+            <Route exact path="/help">
+              <Help />
+            </Route>
+
+            <Route>
+              <PageNotFound />
+            </Route>
+          </Switch>
 
         </div>
       </BrowserRouter>
