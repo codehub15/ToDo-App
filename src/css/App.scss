@@ -1,7 +1,7 @@
-$mainBg: #20272a;
-$navBg: #1d2226;
-$inputBg: #3c6862;
-$btnBg: #184b43;
+$mainBg: #131d29;
+$navBg: #091016;
+$inputBg: #2c5169;
+$btnBg: #13406b;
 
 * {
   margin: 0;
@@ -10,6 +10,8 @@ $btnBg: #184b43;
 
 .app {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: $mainBg;
   color: white;
   overflow: scroll;
