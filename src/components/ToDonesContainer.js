@@ -2,7 +2,6 @@ import React from 'react'
 import ToDoneItem from './ToDoneItem';
 
 export default function ToDonesContainer(props) {
-    // store props in variable
     const todones = props.item;
 
     // map through the items array and return list component

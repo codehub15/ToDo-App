@@ -14,7 +14,6 @@ export default function Navigation() {
                 <Link to="/help">
                     Help
                 </Link>
-                {/**  <a href="#">Help</a>  */}
             </div>
         </nav>
     )
