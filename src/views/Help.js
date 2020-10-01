@@ -1,5 +1,6 @@
 import React from 'react'
-import '../css/help.css'
+import { Link } from 'react-router-dom'
+import '../css/help.scss'
 
 
 export default function Help() {
@@ -12,6 +13,7 @@ export default function Help() {
                 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
                 Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             </p>
+            <Link to="/" className="btn back-btn">GO BACK</Link>
         </div>
     )
 }
