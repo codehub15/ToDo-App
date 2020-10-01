@@ -7,36 +7,28 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import Help from '../views/Help';
 import PageNotFound from '../views/PageNotFound';
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      // some hard coded todo items
       items: []
     }
   }
-
 
   // fetch the data from the local storage using the key
   componentDidMount() {
     let data = localStorage.getItem("todo-list");
     // data parsing
     let parsedData = JSON.parse(data);
-    // let items = JSON.parse(data);
 
     // if this data is not empty than put 
     if (parsedData !== null) {
       this.setState({
-        // items: items
-        // items // when the key and value are the same, write the name only once
         items: parsedData
       })
     }
-
   }
-
 
   // add new todo item to the array
   addItem = (newItem) => {
@@ -53,7 +45,6 @@ export default class App extends Component {
       localStorage.setItem("todo-list", JSON.stringify(this.state.items));
     })
   }
-
 
   // update / toggle status of done and todo
   updateItem = (id) => {
@@ -78,12 +69,10 @@ export default class App extends Component {
   }
 
 
-  // render ==============================
   render() {
-    console.log("items:", this.state.items.length);
+    // console.log("items:", this.state.items.length);
 
-    // get / filter only not done (false) items
-    // add  this.state.items &&  otherwise there is error local storage
+    // get/filter only not done (false) items
     const toDos = this.state.items && this.state.items.filter(el => !el.done);
     // filter only done (true) items
     const toDones = this.state.items && this.state.items.filter(el => el.done);
@@ -93,22 +82,22 @@ export default class App extends Component {
         <div className="app">
           <Navigation />
 
-          <Switch>
-            <Route exact path="/">
-              {/* pass the props (update function) to the child (and from this child to the next) */}
-              <ToDosContainer item={toDos} updateItem={this.updateItem} addItem={this.addItem} />
-              <ToDonesContainer item={toDones} updateItem={this.updateItem} />
-            </Route>
+          <div className="todo-container">
+            <Switch>
+              <Route exact path="/">
+                {/* pass the props (update function) to the child (and from this child to the next) */}
+                <ToDosContainer item={toDos} updateItem={this.updateItem} addItem={this.addItem} />
+                <ToDonesContainer item={toDones} updateItem={this.updateItem} />
+              </Route>
 
-            <Route exact path="/help">
-              <Help />
-            </Route>
-
-            <Route>
-              <PageNotFound />
-            </Route>
-          </Switch>
-
+              <Route exact path="/help">
+                <Help />
+              </Route>
+              <Route>
+                <PageNotFound />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </HashRouter>
     )
