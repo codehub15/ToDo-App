@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
 $mainBg: #131d29;
 $navBg: #091016;
 $inputBg: #2c5169;
@@ -5,7 +7,6 @@ $btnBg: #13406b;
 
 * {
   margin: 0;
-  font-family: monospace;
 }
 
 .app {
@@ -15,6 +16,11 @@ $btnBg: #13406b;
   background: $mainBg;
   color: white;
   overflow: scroll;
+
+  .todo-container {
+    margin: 0 auto;
+    font-family: 'Secular One', sans-serif;
+  }
 
   .btn {
     border: none;
@@ -39,10 +45,16 @@ $btnBg: #13406b;
     align-items: center;
     justify-content: space-between;
     background: $navBg;
-    min-height: 60px;
+    min-height: 45px;
     padding: 10px;
     a {
-      color: white;
+      padding-right: 1.5rem;
+      color: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: bold;
+      &:hover {
+        color: $inputBg;
+      }
     }
   }
 
@@ -60,6 +72,7 @@ $btnBg: #13406b;
           color: white;
           font-size: 1.2em;
           min-width: 300px;
+          font-family: 'Secular One', sans-serif;
         }
       }
     }
@@ -80,6 +93,10 @@ $btnBg: #13406b;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        p {
+          font-family: 'Secular One', sans-serif;
+          font-weight: bold;
+        }
       }
     }
   }
@@ -104,6 +121,7 @@ $btnBg: #13406b;
       p {
         text-decoration: line-through;
         opacity: 0.5;
+        font-family: 'Secular One', sans-serif;
       }
     }
   }
